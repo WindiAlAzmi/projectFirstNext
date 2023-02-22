@@ -1,3 +1,4 @@
+import Card from "@/components/Articles/Card";
 import React from "react";
 import Error from "./error";
 
@@ -11,7 +12,6 @@ async function getDataPost(params) {
    
 }
 
-
 export default async function DetailArticle({params}) {
 
    const { data, statusCode } = await getDataPost(params.slug);
@@ -24,22 +24,7 @@ if (statusCode) {
     return (
       <div>
         ini detail articles hehe {params.slug}
-    
-        {/* <div>{JSON.stringify(data)}</div> */}
-        {/* <div>
-            {Object.keys(data).map((data, index) => {
-                <div key={index}>
-                    <div>{data.body}</div>
-                       <div>
-                <Suspense fallback={<div>sedang mengambil comments...</div>}>
-                  <CommentsResults slug={data} />
-                </Suspense>
-              </div>
-                </div>
-
-            })}
-        </div> */}
-
+        <Card data={data} />
       </div>
     );
 }
