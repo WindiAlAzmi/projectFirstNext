@@ -1,7 +1,7 @@
 import React from "react";
 // import ResultSearch from "@/components/Articles/ResultSearch";
 import CardList from "@/components/Articles/CardList";
-import NoData from "@/components/NoData";
+import NoData from "@/components/Articles/NoData";
 import Error from "./error";
 // import Error from "./error";
 
