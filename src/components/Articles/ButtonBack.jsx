@@ -1,12 +1,16 @@
 'use client'
 import React from "react";
 import Link from "next/link";
+import useArticlesStore from "@/store/articles";
 
 const ButtonBack = () => {
+    const { pageArticles } = useArticlesStore();
+
+    console.log(pageArticles, 'ini page articles');
     return (
       <div>
         ini button
-        <Link href="/articles">kembali ke articles</Link>
+        <Link href={`/articles/${pageArticles}`}>kembali ke articles</Link>
       </div>
     );
 }

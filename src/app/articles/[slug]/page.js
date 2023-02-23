@@ -1,31 +1,41 @@
-import Card from "@/components/Articles/Card";
 import React from "react";
-import Error from "./error";
-
-
+import Search from "@/components/Articles/Search";
+import Pagination from "@/components/Articles/PaginationArticles";
 
 async function getDataPost(params) {
-    const res = await fetch(`https://gorest.co.in/public/v2/posts/${params}`);
-      const statusCode = res.status > 200 ? res.status : false;
-      const data = await res.json();
-      return { statusCode, data };
-   
+  const page = params.slug ? Number(params.slug) : 1;
+  console.log(page, "ini adalah page");
+  const res = await fetch(
+    `https://gorest.co.in/public/v2/posts?page=${page}&per_page=20 `,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }
+  );
+  const data = await res.json();
+  return { data, page };
 }
 
-export default async function DetailArticle({params}) {
+const ArticlesPagination = async ({ params }) => {
+  const { data, page } = await getDataPost(params);
+  console.log(params.slug, "ini slug di articles/slug ");
 
-   const { data, statusCode } = await getDataPost(params.slug);
-   console.log(data, "ini data di articles detail search ");
+  console.log(page, "ini page steelah render");
+  console.log(data, "ini data di pagination");
 
-
-if (statusCode) {
-  return <Error error={statusCode} />;
-}
-    return (
+  return (
+    <div>
+      <Search />
       <div>
-        ini detail articles hehe {params.slug}
-        <Card data={data} />
+        <p>ini card list</p>
+        <Pagination page={page} data={data} />
       </div>
-    );
-}
+    </div>
+  );
+};
 
+export default ArticlesPagination;

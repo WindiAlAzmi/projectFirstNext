@@ -6,7 +6,10 @@ const useArticlesStore = create((set) => ({
   getOneArticles: {},
   commentsArticles: [],
   searchArticles: "",
-
+  pageArticles : 1,
+  setPageArticles : (data) => {
+    set({pageArticles : data })
+  },
   addFirstArticles : (data) => {
     set((state) => ({articles : state.articles.concat(data) }));
   },

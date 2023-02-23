@@ -1,7 +1,8 @@
-
+'use client';
 import React from "react";
 import Card from "./Card";
 import CardShortDetail from "./CardShortDetail";
+
 
 
 const CardList = ({data}) => {
@@ -11,7 +12,7 @@ const CardList = ({data}) => {
       <div>
         {data && (
           <>
-            <div>ini card list di jsx</div>
+        
             {/* <div>{data.map((dt) => <Card key={dt.id} data={dt} />)}</div> */}
             <div>
               {data.map((dt) => (
@@ -21,6 +22,7 @@ const CardList = ({data}) => {
           </>
         )}
       </div>
+    
     </div>
   );
 
