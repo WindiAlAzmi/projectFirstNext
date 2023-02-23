@@ -23,7 +23,7 @@ async function getDataPost(params) {
       },
     }
   );
-  // const statusCode = res.status > 200 ? res.status : false;
+
   const data = await res.json();
   return { data, page };
    }
@@ -37,9 +37,6 @@ const ArticlesPagination = async ({ params }) => {
   console.log(page, "ini page steelah render");
   console.log(data, "ini data di pagination");
 
-  // if (statusCode) {
-  //   return <Error error={statusCode} />;
-  // }
 
   return (
     <div>

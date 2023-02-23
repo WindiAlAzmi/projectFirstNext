@@ -56,6 +56,7 @@ const Card = async({data}) => {
           <div>name : {dataUser.name}</div>
           <div>email: {dataUser.email}</div>
           <div>gender: {dataUser.gender}</div>
+          <div>status: {dataUser.status}</div>
         </div>
       </div>
       <div className="bg-green-300">

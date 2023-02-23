@@ -2,45 +2,42 @@ import React from "react";
 import CardList from "@/components/Authors/CardList";
 import NoData from "@/components/Authors/NoData";
 import Error from "./error";
+import ButtonBack from "@/components/Authors/ButtonBack";
 
-async function getDataSearch() {
+async function getDataSearch(searchData) {
 
-  const res = await fetch(`https://gorest.co.in/public/v2/users/ `, {
-    method: "GET",
-    headers: {
-      Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-  });
+  const res = await fetch(
+    `https://gorest.co.in/public/v2/users?name=${searchData} `,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+    }
+  );
   const statusCode = res.status > 200 ? res.status : false;
   const data = await res.json();
+ 
   return {statusCode, data};
 
 }
 
 export default async function SearchPage ({params}) {
-  const {data, statusCode} = await getDataSearch();
-  const dataSearch = params.slug;
-  
-    const getSimilar =  (data) => {
-      return data.filter((dt) => 
-       dt.name.toString().toLowerCase().includes(dataSearch.toString().toLowerCase())
+  const {data, statusCode} = await getDataSearch(params.slug);
 
-    )}
-    
     if(statusCode) {
       return <Error error={statusCode} />
     }
-    
-    const filterData = getSimilar(data);
 
   return (
     <div className="bg-red-200">
       <p>data search di author</p>
 
-      {filterData.length !== 0 ?  <CardList data={filterData} /> : 
+      {data.length !== 0 ?  <CardList data={data} /> : 
   <NoData />}
+    <ButtonBack />
     </div>
   );
 };

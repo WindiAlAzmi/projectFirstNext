@@ -1,5 +1,7 @@
 import React from "react";
 import ButtonBack from "./ButtonBack";
+import ButtonDelete from "./ButtonDelete";
+import ButtonUpdate from "./ButtonUpdate";
 
 async function getDataPost(data) {
   const res = await fetch(`https://gorest.co.in/public/v2/users/${data.id}/posts`,
@@ -17,29 +19,10 @@ async function getDataPost(data) {
   return res.json();
 }
 
-
-// async function getDataUser(data) {
-//   const res = await fetch(
-//     `https://gorest.co.in/public/v2/users/${data.id}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
-//         Accept: "application/json",
-//         "Content-Type": "application/json",
-
-//       },
-//     }
-//   );
-//   return res.json();
-// }
-
-
 const Card = async({data}) => {
    const dataPost = await getDataPost(data);
-  // const dataUser = await getDataUser(data);
   console.log(dataPost, "ini data post di author");
-  // console.log(dataUser, "ini data author di author");
+
 
   return (
     <div className="bg-pink-600 p-4">
@@ -49,6 +32,7 @@ const Card = async({data}) => {
           <div>name : {data.name}</div>
           <div>email: {data.email}</div>
           <div>gender: {data.gender}</div>
+          <div>status: {data.status}</div>
         </div>
       </div>
       <div className="bg-green-300">
@@ -60,6 +44,8 @@ const Card = async({data}) => {
         </div>
       </div>
       <ButtonBack />
+      <ButtonUpdate data={data.id} />
+      <ButtonDelete data={data.id} />
     </div>
   );
 }

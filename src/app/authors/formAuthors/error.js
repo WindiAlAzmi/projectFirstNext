@@ -9,9 +9,9 @@ const Error = ({ error }) => {
 
   return (
     <div>
-      Error fetching data detail ganti cek
+      Error fetching data detail
       <button>
-        <Link href="/authors">kembali ke home</Link>
+        <Link href="/">kembali ke home</Link>
       </button>
     </div>
   );

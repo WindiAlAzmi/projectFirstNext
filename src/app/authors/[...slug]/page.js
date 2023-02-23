@@ -7,7 +7,7 @@ export default function NotFound() {
        <h2>
         Page not found di page 
       </h2>
-      <Link href="/">back to home</Link>
+      <Link href="/authors">back to home</Link>
     </div>
   );
 }
