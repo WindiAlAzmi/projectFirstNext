@@ -10,7 +10,7 @@ const ButtonBack = () => {
     return (
       <div>
         ini button
-        <Link href={`/articles/${pageArticles}`}>kembali ke articles</Link>
+        <Link href={`/articles/pageNumber/${pageArticles}`}>kembali ke articles</Link>
       </div>
     );
 }

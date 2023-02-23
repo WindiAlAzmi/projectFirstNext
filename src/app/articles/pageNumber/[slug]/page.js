@@ -1,9 +1,16 @@
 import React from "react";
 import Search from "@/components/Articles/Search";
-import Pagination from "@/components/Articles/PaginationArticles";
+import PaginationArticles from "@/components/Articles/PaginationArticles";
+import NoData from "@/components/Articles/NoData";
 
 async function getDataPost(params) {
-  const page = params.slug ? Number(params.slug) : 1;
+   if (isNaN(params.slug) || params.slug > 20) {
+    console.log('masuk sini nan');
+     const page = 1;
+     const data = null;
+     return {page, data};
+   }else {
+      const page = params.slug ? Number(params.slug) : 1;
   console.log(page, "ini adalah page");
   const res = await fetch(
     `https://gorest.co.in/public/v2/posts?page=${page}&per_page=20 `,
@@ -16,8 +23,11 @@ async function getDataPost(params) {
       },
     }
   );
+  // const statusCode = res.status > 200 ? res.status : false;
   const data = await res.json();
   return { data, page };
+   }
+
 }
 
 const ArticlesPagination = async ({ params }) => {
@@ -27,14 +37,26 @@ const ArticlesPagination = async ({ params }) => {
   console.log(page, "ini page steelah render");
   console.log(data, "ini data di pagination");
 
+  // if (statusCode) {
+  //   return <Error error={statusCode} />;
+  // }
+
   return (
+    <div>
+      {data !== null ? 
+  
     <div>
       <Search />
       <div>
         <p>ini card list</p>
-        <Pagination page={page} data={data} />
+        <PaginationArticles page={page} data={data} />
       </div>
     </div>
+    : <div>
+      <NoData />
+    </div>
+      }
+      </div>
   );
 };
 

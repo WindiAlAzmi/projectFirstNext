@@ -9,7 +9,7 @@ const Error = ({ error }) => {
 
   return (
     <div>
-      ini error fetching data  user
+      Error fetching data detail
       <button>
         <Link href="/">kembali ke home</Link>
       </button>

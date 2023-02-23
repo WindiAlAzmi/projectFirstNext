@@ -2,16 +2,16 @@
 import React, {useEffect} from "react";
 import CardList from "./CardList";
 import Link from "next/link";
-import useArticlesStore from "@/store/articles";
+import useAuthorStore from "@/store/authors";
 
-const PaginationArticles = ({ data, page }) => {
-    const { setPageArticles } = useArticlesStore();
+const PaginationAuthors = ({ data, page }) => {
+    const { setPageAuthor } = useAuthorStore();
 
 
   useEffect(() => {
      if (page) {
     
-       setPageArticles(page);
+       setPageAuthor(page);
      }
   }, [page])
  
@@ -21,21 +21,21 @@ const PaginationArticles = ({ data, page }) => {
 
   return (
     <div>
-      ini Pagination
+      ini Pagination author
       <CardList data={data} />
       <div>
         <p>ini tombol next dan before</p>
         <ul>
         {page !== 1 &&
           <li className=" col-start-1 ">
-            <Link href={`/articles/pageNumber/${ page - Number(1)}`}>
+            <Link href={`/authors/pageNumber/${ page - Number(1)}`}>
               prev page {  page - 1}
             </Link>
           </li>
         }
 
           <li className="col-start-2  md:col-start-3">
-            <Link href={`/articles/pageNumber/${page + Number(1)}`}>
+            <Link href={`/authors/pageNumber/${page + Number(1)}`}>
               next page {page + 1}
             </Link>{" "}
           </li>
@@ -45,4 +45,4 @@ const PaginationArticles = ({ data, page }) => {
   );
 };
 
-export default PaginationArticles;
+export default PaginationAuthors;

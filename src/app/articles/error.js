@@ -1,19 +1,16 @@
 "use client"
-import Link from "next/link";
 import React, { useEffect } from "react";
 
-const Error = ({error})  => {
+const Error = ({ error }) => {
+  useEffect(() => {
+    console.error(error);
+  }, [error]);
 
-    useEffect (() => {
-        console.error(error)
-    }, [error])
-
-    return (
-        <div>
-            error fetching data articles
-            <button><Link href="/">kembali ke home</Link></button>
-        </div>
-    )
-}
+  return (
+    <div>
+      ini error di home
+    </div>
+  );
+};
 
 export default Error;

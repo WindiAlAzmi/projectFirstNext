@@ -5,7 +5,10 @@ const useAuthorStore = create((set) => ({
   getOneDataAuthor: {},
   articlesAuthor: [],
   searchAuthor: "",
-
+  pageAuthor: 1,
+  setPageAuthor: (data) => {
+    set({ pageAuthor: data });
+  },
   addAuthor: (data) => {
     set((state) => ({ authors: [...state.authors, data] }));
   },

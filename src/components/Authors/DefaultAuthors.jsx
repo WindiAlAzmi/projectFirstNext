@@ -3,7 +3,7 @@ import React from "react";
 import CardList from "./CardList";
 import Link from "next/link";
 
-const DefaultArticles = ({ data }) => {
+const DefaultAuthors = ({ data }) => {
   if (!data) {
     return null;
   }
@@ -16,7 +16,7 @@ const DefaultArticles = ({ data }) => {
         <p>ini tombol next di halaman default articles</p>
         <ul>
           <li>
-            <Link href={`/articles/pageNumber/${Number(2)}`}>next page </Link>{" "}
+            <Link href={`/authors/pageNumber/${Number(2)}`}>next page </Link>{" "}
           </li>
         </ul>
       </div>
@@ -24,4 +24,4 @@ const DefaultArticles = ({ data }) => {
   );
 };
 
-export default DefaultArticles;
+export default DefaultAuthors;
