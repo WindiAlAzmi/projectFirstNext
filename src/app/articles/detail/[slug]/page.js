@@ -6,7 +6,8 @@ import { formatDistanceToNow} from "date-fns";
 
 
 async function getDataPost(params) {
-    const res = await fetch(`https://gorest.co.in/public/v2/posts/${params}`, {
+  try {
+       const res = await fetch(`https://gorest.co.in/public/v2/posts/${params}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
@@ -30,6 +31,10 @@ async function getDataPost(params) {
      };
 
      return { statusCode, data };
+  }catch(error){
+       console.error("Error:", error);
+       console.log("Digest:", error.digest);
+  }
       
    
 }

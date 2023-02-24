@@ -4,6 +4,7 @@ import Link from "next/link";
 
 
 const CardShortDetailArticle = ({data}) => {
+   console.log(data.id, "ini data id di short detail articles");
     return (
       <Link href={`/articles/detail/${data.id}`}>
         <div className="bg-yellow-400 mb-20">

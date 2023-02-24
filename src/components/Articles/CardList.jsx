@@ -5,7 +5,6 @@ import CardShortDetailArticle from "./CardShortDetailArticle";
 
 
 const CardList = ({data}) => {
-
   return (
     <div className="bg-gray-400 flex flex-col p-4">
       <div>
