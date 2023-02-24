@@ -35,7 +35,6 @@ async function getDataPost(data) {
 
 const Card = async({data}) => {
    const dataPost = await getDataPost(data);
-  console.log(dataPost, "ini data post di author");
 
 
   return (

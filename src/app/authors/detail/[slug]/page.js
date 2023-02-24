@@ -26,7 +26,6 @@ async function getDataUser(params) {
             status: oldData.status,
             date: distance,
           };
-        console.log(data, "ini new data");
 
       return { statusCode, data };
    
@@ -35,7 +34,6 @@ async function getDataUser(params) {
 export default async function DetailArticle({params}) {
 
    const { data, statusCode } = await getDataUser(params.slug);
-   console.log(data, "ini data di user detail search ");
 
 
 if (statusCode) {

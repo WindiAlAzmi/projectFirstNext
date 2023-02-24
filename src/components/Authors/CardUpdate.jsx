@@ -10,7 +10,6 @@ const CardUpdate = ({data}) => {
 
      const editAuthorHandler = async (event) => {
        event.preventDefault();
-       console.log(name, email, status, "ini data form");
        try {
          const response = await fetch(
            `https://gorest.co.in/public/v2/users/${data.id}`,
@@ -28,7 +27,7 @@ const CardUpdate = ({data}) => {
              }),
            }
          );
-         console.log("create authors response: ", response.json());
+        //  console.log("create authors response: ", response.json());
        } catch (error) {
          console.log("error update authors: ", error);
        } finally {

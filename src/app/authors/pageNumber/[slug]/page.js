@@ -12,7 +12,6 @@ async function getDataAuthors(params) {
       return { page, data };
     }else {
       const page = params.slug ? Number(params.slug) : 1;
-      console.log(page, "ini adalah page author");
       const res = await fetch(
         `https://gorest.co.in/public/v2/users?page=${page}&per_page=20 `,
         {

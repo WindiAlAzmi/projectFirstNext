@@ -22,7 +22,7 @@ const CardDelete = ({data}) => {
 
          deleteData();
        
-         console.log("delete response: ", response.json());  
+        //  console.log("delete response: ", response.json());  
 
     },[data])
 

@@ -47,8 +47,7 @@ async function getDataUser(data) {
 const Card = async({data}) => {
    const dataComments = await getDataComments(data);
   const dataUser = await getDataUser(data);
-  console.log(data, "ini data comment di card");
-  console.log(dataUser, "ini data user di card");
+
 
   return (
     <div className="bg-pink-600 p-4">

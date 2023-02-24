@@ -6,7 +6,6 @@ import useArticlesStore from "@/store/articles";
 const ButtonBack = () => {
     const { pageArticles } = useArticlesStore();
 
-    console.log(pageArticles, 'ini page articles');
     return (
       <div>
         ini button
