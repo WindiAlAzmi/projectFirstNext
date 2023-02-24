@@ -10,7 +10,7 @@ const CardShortDetailArticle = ({data}) => {
           <div>ini data card short detail</div>
           <div>title: {data.title}</div>
           <div>date: {data.date}</div>
-          <div>time read : {data.readTime} minutes </div>
+          <div>time read : {Math.round(data.body.length / 100)} minutes </div>
           <div>
             <img
               src={`${data.image}`}
