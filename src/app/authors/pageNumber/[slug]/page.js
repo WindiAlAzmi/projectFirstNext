@@ -13,13 +13,16 @@ async function getDataAuthors(params) {
     }else {
       const page = params.slug ? Number(params.slug) : 1;
       const res = await fetch(
-        `https://gorest.co.in/public/v2/users?page=${page}&per_page=20 `,
+        `https://gorest.co.in/public/v2/users?page=${page}&per_page=10 `,
         {
           method: "GET",
           headers: {
             Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
             Accept: "application/json",
             "Content-Type": "application/json",
+            next : {
+              revalidate : 15 //isr revalidate
+            }
           },
         }
       );

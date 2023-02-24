@@ -5,17 +5,17 @@ import { formatDistanceToNow} from "date-fns"
 
 
 async function getAllArticles() {
-  const res = await fetch(
-    `https://gorest.co.in/public/v2/posts/`,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
+  const res = await fetch(`https://gorest.co.in/public/v2/posts/`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      next: {
+        revalidate: 15, //isr revalidate
       },
-    }
-  );
+    },
+  });
     const imageGenerate = faker.image.technics();
     const dateArticle =new Date();
     const distance = formatDistanceToNow(dateArticle);
@@ -37,6 +37,9 @@ async function getAllUser() {
       Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
       Accept: "application/json",
       "Content-Type": "application/json",
+      next: {
+        revalidate: 15, //isr revalidate
+      },
     },
   });
 

@@ -11,6 +11,9 @@ async function getDataUser(params) {
         Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
         Accept: "application/json",
         "Content-Type": "application/json",
+        next: {
+          revalidate: 15, //isr revalidate
+        },
       },
     });
       const statusCode = res.status > 200 ? res.status : false;
