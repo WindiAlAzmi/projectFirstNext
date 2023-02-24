@@ -15,7 +15,7 @@ async function getDataPost(params) {
       const page = params.slug ? Number(params.slug) : 1;
 
       const res = await fetch(
-        `https://gorest.co.in/public/v2/posts?page=${page}&per_page=20 `,
+        `https://gorest.co.in/public/v2/posts?page=${page}&per_page=10 `,
         {
           method: "GET",
           headers: {
