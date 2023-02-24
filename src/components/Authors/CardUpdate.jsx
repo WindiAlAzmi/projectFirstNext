@@ -1,12 +1,16 @@
 'use client'
 import React, {useState} from "react"
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import useAuthorStore from "@/store/authors";
+
 
 const CardUpdate = ({data}) => {
     const router = useRouter();
      const [name, setName] = useState(data?.name);
      const [email, setEmail] = useState(data?.email);
      const [status, setStatus] = useState(data?.status);
+        const { pageAuthor } = useAuthorStore();
 
      const editAuthorHandler = async (event) => {
        event.preventDefault();
@@ -39,43 +43,62 @@ const CardUpdate = ({data}) => {
      };
 
      return (
-       <div className="mb-20">
-         <div>add more authors</div>
+       <div>
+         <div className="text-center text-lg font-bold mt-4">
+           <h3>form edit authors</h3>
+         </div>
          <form
            onSubmit={editAuthorHandler}
            className="flex bg-yellow-300 p-4 flex-col gap-20"
          >
-           <p>create authors</p>
-           <div>
-             <label>name:</label>
+           <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+             <label className="w-2/6 p-4">name:</label>
              <input
                type="text"
                placeholder="name"
                value={name}
                onChange={(e) => setName(e.target.value)}
+               className="w-4/6 outline-none p-4"
              />
            </div>
-           <div>
-             <label>email:</label>
+           <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+             <label className="w-2/6 p-4">email:</label>
              <input
                type="text"
                placeholder="email"
                value={email}
                onChange={(e) => setEmail(e.target.value)}
+               className="w-4/6 outline-none p-4"
              />
            </div>
-           <div>
-             <label>status:</label>
+           <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+             <label className="w-2/6 p-4">status:</label>
              <input
                type="text"
                placeholder="status"
                value={status}
                onChange={(e) => setStatus(e.target.value)}
+               className="w-4/6 outline-none p-4"
              />
            </div>
-           <button type="submit" className="text-2xl text-left">
-             update Author
-           </button>
+           <div className="w-full bg-red-200 flex flex-col   md:flex-row justify-center ">
+             <div className="w-full flex flex-row flex-wrap mb-4 justify-center">
+               <button
+                 type="submit"
+                 className="bg-blue-800 p-2 md:w-[200px] w-5/6 text-center rounded-lg"
+               >
+                 update Author
+               </button>
+             </div>
+             <div className="w-full flex flex-wrap flex-row justify-center">
+               <Link
+                 href={`/authors/detail/${data.id}`}
+                 className="bg-blue-800 p-2 md:w-[200px] w-5/6 text-center rounded-lg"
+               >
+                 back
+               </Link>
+             </div>
+           </div>
          </form>
        </div>
      );

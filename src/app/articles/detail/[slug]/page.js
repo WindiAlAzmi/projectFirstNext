@@ -55,10 +55,9 @@ if (statusCode) {
   return <Error error={statusCode} />;
 }
     return (
-      <div>
-        ini detail articles {params.slug}
+      <main>
         <Card data={data} />
-      </div>
+      </main>
     );
 }
 

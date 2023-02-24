@@ -38,35 +38,81 @@ const Card = async({data}) => {
 
 
   return (
-    <div className="bg-pink-600 p-4">
-      <div>
-        <p>ini data user</p>
-        <div className="bg-yellow-400">
-          <div>name : {data.name}</div>
-          <div>email: {data.email}</div>
-          <div>gender: {data.gender}</div>
-          <div>status: {data.status}</div>
-          <div>date: {data.date}</div>
-          <div>
-            <img
-              src="/image/defaultImg.jpg"
-              alt="My External Image"
-              className="w-1/2"
-            />
+    <div className="bg-pink-600 p-2 w-full">
+      <div className="bg-yellow-400 w-full flex flex-col  justify-center ">
+        <div className="bg-red-500 w-full md:w-3/6 mx-auto flex flex-row justify-center p-2">
+          <img
+            src="/image/defaultImg.jpg"
+            alt="My External Image"
+            className="w-1/2 rounded-full"
+          />
+        </div>
+        <div className="bg-yellow-200 flex flex-col p-2 text-sm md:text-base">
+          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
+            <div className="w-2/6">
+              <h3 className="break-words">name: </h3>
+            </div>
+            <div className="w-4/6">
+              <h3> {data.name}</h3>
+            </div>
+          </div>
+
+          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
+            <div className="w-2/6">
+              <h3>email: </h3>
+            </div>
+            <div className="w-4/6 bg-green-200">
+              <h3 className="w-full break-words"> {data.email}</h3>
+            </div>
+          </div>
+
+          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
+            <div className="w-2/6">
+              <h3>gender: </h3>
+            </div>
+            <div className="w-4/6">
+              <h3> {data.gender}</h3>
+            </div>
+          </div>
+
+          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
+            <div className="w-2/6">
+              <h3>status: </h3>
+            </div>
+            <div className="w-4/6">
+              <h3> {data.status}</h3>
+            </div>
+          </div>
+
+          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
+            <div className="w-2/6">
+              <h3>date: </h3>
+            </div>
+            <div className="w-4/6">
+              <h3> {data.date}</h3>
+            </div>
           </div>
         </div>
       </div>
-      <div className="bg-green-300">
-        <p>ini post dari user {data.id}</p>
-        <div>
+
+      <div className="flex flex-col mt-10 flex-wrap">
+        <div className="font-bold text-base text-black">
+          <h3>All Postingan</h3>
+        </div>
+        <div className="bg-blue-800 flex-wrap  flex flex-col md:flex-row lg:flex-row w-full ">
           {dataPost.map((dt) => (
-             <CardShortDetailArticle key={dt.id} data={dt} />
+            <CardShortDetailArticle key={dt.id} data={dt} />
           ))}
         </div>
       </div>
-      <ButtonBack />
-      <ButtonUpdate data={data.id} />
-      <ButtonDelete data={data.id} />
+
+      <div className="flex flex-col gap-2 md:gap-0 md:flex-row w-full md:justify-between  bg-yellow-200">
+        {/* <ButtonBack /> */}
+
+        <ButtonUpdate data={data.id} />
+        <ButtonDelete data={data.id} />
+   
+      </div>
     </div>
   );
 }

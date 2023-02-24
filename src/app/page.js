@@ -63,11 +63,8 @@ export default async function Home() {
     
 
   return (
-    <main className="bg-green-300 p-4">
-    <p>ini home</p>
-     <div>
+     <main>
       <MainHome dataArticles={dataArticles} dataUser={dataUser}/>
-     </div>
-    </main>
+     </main>
   );
 }

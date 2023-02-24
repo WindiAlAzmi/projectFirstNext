@@ -4,6 +4,8 @@ import NoData from "@/components/Authors/NoData";
 import Error from "./error";
 import ButtonBack from "@/components/Authors/ButtonBack";
 import { formatDistanceToNow} from "date-fns";
+import Search from "@/components/Authors/Search";
+
 
 
 async function getDataSearch(searchData) {
@@ -39,12 +41,17 @@ export default async function SearchPage ({params}) {
     }
 
   return (
-    <div className="bg-red-200">
-      <p>data search di author</p>
+    <div className="bg-red-200 flex flex-wrap flex-col">
+      {data.length !== 0 ? (
+        <div className="flex flex-wrap flex-col">
+          <Search />
+          <CardList data={data} />
+        </div>
+      ) : (
+        <NoData />
+      )}
 
-      {data.length !== 0 ?  <CardList data={data} /> : 
-  <NoData />}
-    <ButtonBack />
+
     </div>
   );
 };

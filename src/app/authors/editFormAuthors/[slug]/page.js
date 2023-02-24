@@ -27,11 +27,10 @@ if (statusCode) {
   return <Error error={statusCode} />;
 }
     return (
-      <div>
-        ini detail users {params.slug}
+      <main>
         <CardUpdate data={data} />
 
-      </div>
+      </main>
     );
 };
 

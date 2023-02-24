@@ -51,7 +51,6 @@ const AuthorsPagination = async ({ params }) => {
     <div>
       <Search />
       <div>
-        <p>ini card list</p>
         <PaginationAuthors page={page} data={data} />
       </div>
     </div>

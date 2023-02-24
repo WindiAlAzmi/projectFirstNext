@@ -18,17 +18,26 @@ const Search = () => {
 
 
     return (
-      <div>
-      <p>ini author halaman search</p>
-        <form onSubmit={searchHandler}>
+      <div className="bg-red-200 flex flex-col mt-8 items-center gap-2 md:bg-blue-300 lg:bg-gray-300 ">
+        <form
+          onSubmit={searchHandler}
+          className="w-full md:w-5/6 p-2 rounded-lg bg-white"
+        >
           <input
             type="text"
             placeholder="cari post"
+            className="w-full mx-auto  outline-none"
             onChange={(e) => setSearch(e.target.value)}
           />
         </form>
-
-        <button onClick={handlerButton}>kembali khome</button>
+        <div className="w-full bg-red-200 flex flex-row justify-end">
+          <button
+            onClick={handlerButton}
+            className=" bg-blue-800 p-2 w-[100px] text-center rounded-lg "
+          >
+            kembali
+          </button>
+        </div>
       </div>
     );
 }

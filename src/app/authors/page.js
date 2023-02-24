@@ -34,13 +34,12 @@ const Authors = async () => {
   const data = await getDataUser();
 
   return (
-    <div>
-      <Search/>
-      <div>
-        <p>ini card default data dari authors </p>
+    <main>
+      <div className="bg-green-800  p-2 flex flex-col gap-3 text-black w-full"> 
+      <Search />
         <DefaultAuthors data={data} />
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -34,13 +34,12 @@ const Articles = async () => {
   const data = await getDataPost();
 
   return (
-    <div>
-      <Search />
-      <div>
-        <p>ini card default data</p>
-        <DefaultArticles data={data} />
+    <main>
+      <div className="bg-green-800  p-2 flex flex-col gap-3 text-black w-full">
+        <Search />
+          <DefaultArticles data={data} />
       </div>
-    </div>
+    </main>
   );
 };
 

@@ -1,9 +1,12 @@
 'use client';
 import React, {useState} from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import useAuthorStore from "@/store/authors";
 
 const AddAuthors = () => {
     const router = useRouter();
+        const { pageAuthor } = useAuthorStore();
 
 
     const [name, setName] = useState("");
@@ -47,49 +50,74 @@ const AddAuthors = () => {
     }
 
     return (
-      <div className="mb-20">
-        <div>add more authors</div>
-        <form onSubmit={createAuthorHandler} className="flex bg-yellow-300 p-4 flex-col gap-20">
-          <p>create authors</p>
-          <div>
-            <label>name:</label>
+      <main>
+        <div className="text-center text-lg font-bold mt-4">
+          <h3>form tambah authors</h3>
+        </div>
+        <form
+          onSubmit={createAuthorHandler}
+          className="flex bg-yellow-300 p-4 flex-col gap-20"
+        >
+          <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+            <label className="w-2/6 p-4">name:</label>
             <input
               type="text"
               placeholder="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
+              className="w-4/6 outline-none p-4"
             />
           </div>
-          <div>
-            <label>email:</label>
+          <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+            <label className="w-2/6 p-4">email:</label>
             <input
               type="text"
               placeholder="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="w-4/6 outline-none p-4"
             />
           </div>
-          <div>
-            <label>gender:</label>
+          <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+            <label className="w-2/6 p-4">gender:</label>
             <input
               type="text"
               placeholder="gender"
               value={gender}
               onChange={(e) => setGender(e.target.value)}
+              className="w-4/6 outline-none p-4"
             />
           </div>
-          <div>
-            <label>status:</label>
+          <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+            <label className="w-2/6 p-4">status:</label>
             <input
               type="text"
               placeholder="status"
               value={status}
               onChange={(e) => setStatus(e.target.value)}
+              className="w-4/6 outline-none p-4"
             />
           </div>
-          <button type="submit" className="text-2xl text-left">Create Author</button>
+          <div className="w-full bg-red-200 flex flex-col md:flex-row justify-center ">
+            <div className="w-full flex flex-row flex-wrap mb-4 justify-center">
+              <button
+                type="submit"
+                className="bg-blue-800 p-2 w-5/6 md:w-[200px] text-center rounded-lg"
+              >
+                Add Author
+              </button>
+            </div>
+            <div className="w-full flex flex-wrap flex-row justify-center">
+              <Link
+                href={`/authors/pageNumber/${pageAuthor}`}
+                className="bg-blue-800 p-2 w-5/6 md:w-[200px] text-center rounded-lg"
+              >
+                back
+              </Link>
+            </div>
+          </div>
         </form>
-      </div>
+      </main>
     );
 }
 

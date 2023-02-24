@@ -6,22 +6,15 @@ import CardShortDetailArticle from "./CardShortDetailArticle";
 
 const CardList = ({data}) => {
   return (
-    <div className="bg-gray-400 flex flex-col p-4">
-      <div>
-        {data && (
-          <>
-        
-            {/* <div>{data.map((dt) => <Card key={dt.id} data={dt} />)}</div> */}
-            <div className="bg-red-200 p-4 flex flex-col">
-              {data.map((dt) => (
-                <CardShortDetailArticle key={dt.id} data={dt} />
-              ))}
-            </div>
-          </>
-        )}
-      </div>
-    
-    </div>
+    <>
+      {data && (
+        <div className="bg-red-500 flex-wrap gap-2 flex flex-col md:flex-row md:justify-around  lg:flex-row w-full lg:justify-between">
+          {data.map((dt) => (
+            <CardShortDetailArticle key={dt.id} data={dt} />
+          ))}
+        </div>
+      )}
+    </>
   );
 
 }

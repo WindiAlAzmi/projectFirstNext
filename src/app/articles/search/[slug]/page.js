@@ -5,6 +5,7 @@ import Error from "./error";
 import ButtonBack from "@/components/Articles/ButtonBack";
 import { faker } from "@faker-js/faker";
 import { formatDistanceToNow } from "date-fns";
+import Search from "@/components/Articles/Search";
 
 async function getDataSearch(searchData) {
 
@@ -43,12 +44,16 @@ export default async function SearchPage ({params}) {
     }
     
   return (
-    <div className="bg-red-200">
-      <p>data search</p>
-
-      {data.length !== 0 ?  <CardList data={data} /> : 
-    <NoData />}
-    <ButtonBack />
+    <div className="bg-red-200 flex flex-wrap flex-col">
+      {data.length !== 0 ? (
+        <div className="flex flex-wrap flex-col">
+          <Search />
+          <CardList data={data} />
+        </div>
+      ) : (
+        <NoData />
+      )}
+     
     </div>
   );
 };
