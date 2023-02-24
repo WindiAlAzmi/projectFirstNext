@@ -1,6 +1,8 @@
 import React from "react";
 import Search from "@/components/Articles/Search";
 import DefaultArticles from "@/components/Articles/DefaultArticles";
+import { faker } from "@faker-js/faker";
+import { formatDistanceToNow, formatISO } from "date-fns";
 
 async function getDataPost() {
   const res = await fetch(`https://gorest.co.in/public/v2/posts/ `, {
@@ -11,7 +13,20 @@ async function getDataPost() {
       "Content-Type": "application/json",
     },
   });
-  return res.json();
+
+    const imageGenerate = faker.image.technics();
+    const dateArticle = new Date();
+    const distance = formatDistanceToNow(dateArticle);
+    const data = await res.json();
+    const newData = data.map((dt) => {
+      dt.date = distance;
+      dt.image = imageGenerate;
+      dt.readTime = Math.round(dt.body.length / 200);
+      return dt;
+    });
+    console.log(newData, "ini new data articles di halaman pagination");
+    return newData;
+
 }
 
 const Articles = async () => {

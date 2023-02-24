@@ -1,6 +1,8 @@
-import Error from "@/app/articles/detail/[slug]/error";
 import React from "react";
 import ButtonBack from "./ButtonBack";
+import ButtonNext from "./ButtonNext";
+import ButtonPrev from "./ButtonPrev";
+import { formatDistanceToNow, formatISO } from "date-fns";
 
 async function getDataComments(data) {
   const res = await fetch(`https://gorest.co.in/public/v2/posts/${data.id}/comments`,
@@ -14,8 +16,14 @@ async function getDataComments(data) {
       },
     }
   );
-
-  return res.json();
+   const dateAuthor = new Date();
+   const distance = formatDistanceToNow(dateAuthor);
+   const oldData = await res.json();
+   const dataNew = oldData.map((dt) => {
+     dt.date = distance;
+     return dt;
+   });
+  return dataNew;
 }
 
 
@@ -49,6 +57,16 @@ const Card = async({data}) => {
         <div>user id : {data.user_id}</div>
         <div>title: {data.title}</div>
         <div>body: {data.body}</div>
+               <div>date: {data.date}</div>
+          <div>time read : {data.readTime} minutes </div>
+          <div>
+            <img
+              src={`${data.image}`}
+              alt="My External Image"
+              className="w-1/2"
+            />
+          </div>
+        
       </div>
       <div>
         <p>ini data user</p>
@@ -63,11 +81,20 @@ const Card = async({data}) => {
         <p>ini comments dari post {data.id}</p>
         <div>
           {dataComments.map((dt) => (
-            <div key={dt.id}>{dt.email}</div>
+            <div key={dt.id}>
+            <ul>
+              <li>{dt.name}</li>
+              <li>{dt.date}</li>
+            </ul>
+            </div>
           ))}
         </div>
       </div>
       <ButtonBack />
+      <div>
+        <ButtonNext />
+        <ButtonPrev />
+      </div>
     </div>
   );
 }

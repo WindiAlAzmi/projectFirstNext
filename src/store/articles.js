@@ -7,9 +7,17 @@ const useArticlesStore = create((set) => ({
   commentsArticles: [],
   searchArticles: "",
   pageArticles : 1,
+  prevArticles: 1,
+  nextArticles: 1,
   setPageArticles : (data) => {
     set({pageArticles : data })
   },
+  setPrevArticles : (id) => {
+    set((state) => ({ prevArticles: state.articles[id - 1] }));
+  },
+  setNextArticles : (id) => {
+     set((state) => ({ nextArticles: state.articles[id + 1] }));
+  }, 
   addFirstArticles : (data) => {
     set((state) => ({articles : state.articles.concat(data) }));
   },

@@ -2,6 +2,7 @@ import React from "react";
 import Search from "@/components/Authors/Search";
 import PaginationAuthors from "@/components/Authors/PaginationAuthors";
 import NoData from "@/components/Authors/NoData";
+import { formatDistanceToNow } from "date-fns";
 
 async function getDataAuthors(params) {
     if (isNaN(params.slug) || params.slug > 20) {
@@ -23,7 +24,15 @@ async function getDataAuthors(params) {
           },
         }
       );
-      const data = await res.json();
+
+       const dateAuthor = new Date();
+       const distance = formatDistanceToNow(dateAuthor);
+       const oldData = await res.json();
+       const data = oldData.map((dt) => {
+         dt.date = distance;
+         return dt;
+       });
+       console.log(data, "ini new data");
       return { data, page };
     }
   

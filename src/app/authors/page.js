@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "@/components/Authors/Search";
 import DefaultAuthors from "@/components/Authors/DefaultAuthors";
-
+import { formatDistanceToNow } from "date-fns";
 
 async function getDataUser() {
   const res = await fetch(`https://gorest.co.in/public/v2/users/ `, {
@@ -12,7 +12,19 @@ async function getDataUser() {
       "Content-Type": "application/json",
     },
   });
-  return res.json();
+
+    const dateAuthor = new Date();
+    const distance = formatDistanceToNow(dateAuthor);
+    const oldData = await res.json();
+    const data = oldData.map((dt) => {
+      dt.date = distance;
+      return dt;
+    });
+    console.log(data, "ini new data ");
+
+    return data;
+
+ 
 }
 
 const Authors = async () => {

@@ -3,7 +3,8 @@ import CardList from "@/components/Articles/CardList";
 import NoData from "@/components/Articles/NoData";
 import Error from "./error";
 import ButtonBack from "@/components/Articles/ButtonBack";
-
+import { faker } from "@faker-js/faker";
+import { formatDistanceToNow, formatISO } from "date-fns";
 
 async function getDataSearch(searchData) {
 
@@ -19,7 +20,16 @@ async function getDataSearch(searchData) {
     }
   );
   const statusCode = res.status > 200 ? res.status : false;
-  const data = await res.json();
+    const imageGenerate = faker.image.technics();
+    const dateArticle = new Date();
+    const distance = formatDistanceToNow(dateArticle);
+    const oldData = await res.json();
+    const data = oldData.map((dt) => {
+      dt.date = distance;
+      dt.image = imageGenerate;
+      dt.readTime = Math.round(dt.body.length / 200);
+      return dt;
+    });
   return {statusCode, data};
 
 }

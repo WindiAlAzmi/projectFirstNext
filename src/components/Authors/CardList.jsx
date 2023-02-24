@@ -1,7 +1,7 @@
 'use client';
 import React from "react";
 import ButtonAdd from "./ButtonAdd";
-import CardShortDetail from "./CardShortDetail";
+import CardShortDetailAuthor from "./CardShortDetailAuthor";
 
 
 
@@ -17,7 +17,7 @@ const CardList = ({data}) => {
 
         <div>
           {data.map((dt) => (
-            <CardShortDetail key={dt.id} data={dt} />
+            <CardShortDetailAuthor key={dt.id} data={dt} />
           ))}
         </div>
       </div>

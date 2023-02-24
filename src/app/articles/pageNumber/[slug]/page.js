@@ -2,6 +2,8 @@ import React from "react";
 import Search from "@/components/Articles/Search";
 import PaginationArticles from "@/components/Articles/PaginationArticles";
 import NoData from "@/components/Articles/NoData";
+import { faker } from "@faker-js/faker";
+import { formatDistanceToNow, formatISO } from "date-fns";
 
 async function getDataPost(params) {
    if (isNaN(params.slug) || params.slug > 20) {
@@ -23,8 +25,16 @@ async function getDataPost(params) {
       },
     }
   );
-
-  const data = await res.json();
+  const imageGenerate = faker.image.technics();
+  const dateArticle = new Date();
+  const distance = formatDistanceToNow(dateArticle);
+  const oldData = await res.json();
+  const data = oldData.map((dt) => {
+    dt.date = distance;
+    dt.image = imageGenerate;
+    dt.readTime = Math.round(dt.body.length / 200);
+    return dt;
+  });
   return { data, page };
    }
 

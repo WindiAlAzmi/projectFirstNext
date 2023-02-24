@@ -21,7 +21,7 @@ const Search = () => {
 
     return (
       <div>
-      <p>ini author</p>
+      <p>ini author halaman search</p>
         <form onSubmit={searchHandler}>
           <input
             type="text"

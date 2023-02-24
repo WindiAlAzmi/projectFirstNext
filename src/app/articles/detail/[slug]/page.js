@@ -1,7 +1,8 @@
 import Card from "@/components/Articles/Card";
 import React from "react";
 import Error from "./error";
-
+import { faker } from "@faker-js/faker";
+import { formatDistanceToNow, formatISO } from "date-fns";
 
 
 async function getDataPost(params) {
@@ -14,7 +15,27 @@ async function getDataPost(params) {
       },
     });
       const statusCode = res.status > 200 ? res.status : false;
-      const data = await res.json();
+      // const data = await res.json();
+      const imageGenerate = faker.image.technics();
+      const datePost = new Date();
+      const distance = formatDistanceToNow(datePost);
+      const oldData = await res.json();
+  //  Math.round(oldData.body.length / 100);
+     console.log(oldData.body, 'ini body');
+      const data = {
+        id: oldData.id,
+        user_id: oldData.user_id,
+        title: oldData.title,
+        body: oldData.body,
+        date: distance,
+        image : imageGenerate,
+        readTime:  Math.round(oldData.body.length / 100)
+        
+
+       
+      };
+      console.log(data, "ini new data");
+    
       return { statusCode, data };
    
 }
