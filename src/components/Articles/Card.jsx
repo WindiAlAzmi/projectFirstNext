@@ -58,7 +58,7 @@ const Card = async({data}) => {
         <div>title: {data.title}</div>
         <div>body: {data.body}</div>
         <div>date: {data.date}</div>
-        <div>time read : {Math.round(oldData.body.length / 100)} minutes </div>
+        <div>time read : {Math.round(data.body.length / 100)} minutes </div>
         <div>
           <img
             src={`${data.image}`}

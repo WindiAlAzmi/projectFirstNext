@@ -25,7 +25,7 @@ const ButtonDelete = ({data}) => {
            );
        
     }catch(error){
-      console.log("error delete authors: ", error);
+      // console.log("error delete authors: ", error);
     }finally{
       router.push(`/authors/pageNumber/${pageAuthor}`);
 
