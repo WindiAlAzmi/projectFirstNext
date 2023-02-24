@@ -49,9 +49,9 @@ const CardUpdate = ({data}) => {
          </div>
          <form
            onSubmit={editAuthorHandler}
-           className="flex bg-yellow-300 p-4 flex-col gap-20"
+           className="flex  p-4 flex-col gap-20"
          >
-           <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+           <div className="w-full  text-lg  flex flex-wrap flex-row justify-center">
              <label className="w-2/6 p-4">name:</label>
              <input
                type="text"
@@ -61,7 +61,7 @@ const CardUpdate = ({data}) => {
                className="w-4/6 outline-none p-4"
              />
            </div>
-           <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+           <div className="w-full text-lg  flex flex-wrap flex-row justify-center">
              <label className="w-2/6 p-4">email:</label>
              <input
                type="text"
@@ -71,7 +71,7 @@ const CardUpdate = ({data}) => {
                className="w-4/6 outline-none p-4"
              />
            </div>
-           <div className="w-full bg-red-200 text-lg  flex flex-wrap flex-row justify-center">
+           <div className="w-full  text-lg  flex flex-wrap flex-row justify-center">
              <label className="w-2/6 p-4">status:</label>
              <input
                type="text"
@@ -81,11 +81,11 @@ const CardUpdate = ({data}) => {
                className="w-4/6 outline-none p-4"
              />
            </div>
-           <div className="w-full bg-red-200 flex flex-col   md:flex-row justify-center ">
+           <div className="w-full flex flex-col   md:flex-row justify-center ">
              <div className="w-full flex flex-row flex-wrap mb-4 justify-center">
                <button
                  type="submit"
-                 className="bg-blue-800 p-2 md:w-[200px] w-5/6 text-center rounded-lg"
+                 className="bg-black text-white p-2 md:w-[200px] w-5/6 text-center rounded-lg"
                >
                  update Author
                </button>
@@ -93,7 +93,7 @@ const CardUpdate = ({data}) => {
              <div className="w-full flex flex-wrap flex-row justify-center">
                <Link
                  href={`/authors/detail/${data.id}`}
-                 className="bg-blue-800 p-2 md:w-[200px] w-5/6 text-center rounded-lg"
+                 className="bg-black text-white p-2 md:w-[200px] w-5/6 text-center rounded-lg"
                >
                  back
                </Link>

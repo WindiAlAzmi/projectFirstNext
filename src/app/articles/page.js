@@ -35,7 +35,7 @@ const Articles = async () => {
 
   return (
     <main>
-      <div className="bg-green-800  p-2 flex flex-col gap-3 text-black w-full">
+      <div className="  p-2 flex flex-col gap-3 text-black w-full">
         <Search />
           <DefaultArticles data={data} />
       </div>

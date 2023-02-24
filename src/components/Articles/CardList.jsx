@@ -8,7 +8,7 @@ const CardList = ({data}) => {
   return (
     <>
       {data && (
-        <div className="bg-red-500 flex-wrap gap-2 flex flex-col md:flex-row md:justify-around  lg:flex-row w-full lg:justify-between">
+        <div className=" flex-wrap gap-2 flex flex-col md:flex-row md:justify-around  lg:flex-row w-full lg:justify-between">
           {data.map((dt) => (
             <CardShortDetailArticle key={dt.id} data={dt} />
           ))}

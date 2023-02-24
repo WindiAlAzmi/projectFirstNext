@@ -9,14 +9,14 @@ const DefaultArticles = ({ data }) => {
   }
 
   return (
-    <div className="bg-blue-700  flex flex-col ">
+    <div className="  flex flex-col ">
       <CardList data={data} />
 
-      <ul className="w-full bg-green-200 flex flex-row">
+      <ul className="w-full  flex flex-row">
         <li className=" w-full flex flex-row justify-end">
           <Link
             href={`/articles/pageNumber/${Number(2)}`}
-            className="bg-blue-800 p-2 w-[100px] text-center rounded-lg"
+            className="bg-black text-white font-bold p-2 w-[100px] text-center rounded-lg"
           >
             next page{" "}
           </Link>{" "}

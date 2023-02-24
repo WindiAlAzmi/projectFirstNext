@@ -10,7 +10,7 @@ const ButtonBackCard = () => {
         <div className="w-full flex flex-wrap flex-row ">
   <Link
     href={`/authors/pageNumber/${pageAuthor}`}
-    className="bg-blue-800 p-2 w-5/6 md:w-2/6 lg:w-[180px] text-center rounded-lg"
+    className="bg-black text-white font-bold p-2 w-5/6 md:w-2/6 lg:w-[180px] text-center rounded-lg"
   >
     back
   </Link>

@@ -44,7 +44,7 @@ export default async function SearchPage ({params}) {
     }
     
   return (
-    <div className="bg-red-200 flex flex-wrap flex-col">
+    <div className=" flex flex-wrap flex-col">
       {data.length !== 0 ? (
         <div className="flex flex-wrap flex-col">
           <Search />

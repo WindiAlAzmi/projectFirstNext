@@ -46,7 +46,7 @@ const AuthorsPagination = async ({ params }) => {
 
 
   return (
-      <div>
+      <div className="mb-8">
       {data !== null ? 
     <div>
       <Search />

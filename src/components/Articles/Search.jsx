@@ -18,10 +18,10 @@ const Search = () => {
 
 
     return (
-      <div className="bg-red-200 flex flex-col mt-8 items-center gap-2 md:bg-blue-300 lg:bg-gray-300 ">
+      <div className=" flex flex-col mt-8 items-center gap-2  ">
         <form
           onSubmit={searchHandler}
-          className="w-full md:w-5/6 p-2 rounded-lg bg-white"
+          className="w-full md:w-5/6 p-2 rounded-lg bg-white border border-pink-600"
         >
           <input
             type="text"
@@ -30,10 +30,10 @@ const Search = () => {
             className="w-full mx-auto  outline-none"
           />
         </form>
-        <div className="w-full bg-red-200 flex flex-row justify-end">
+        <div className="w-full  flex flex-row justify-end">
           <button
             onClick={handlerButton}
-            className=" bg-blue-800 p-2 w-[100px] text-center rounded-lg "
+            className=" bg-black text-white font-bold p-2 w-[100px] text-center rounded-lg "
           >
             kembali
           </button>

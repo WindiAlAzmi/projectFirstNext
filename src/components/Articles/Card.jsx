@@ -4,6 +4,9 @@ import ButtonNext from "./ButtonNext";
 import ButtonPrev from "./ButtonPrev";
 import { formatDistanceToNow } from "date-fns";
 import CardShortDetailAuthor from "../Authors/CardShortDetailAuthor";
+import {  IoChatbubbleEllipsesOutline } from "react-icons/io5";
+
+
 
 async function getDataComments(data) {
   const res = await fetch(`https://gorest.co.in/public/v2/posts/${data.id}/comments`,
@@ -51,153 +54,101 @@ const Card = async({data}) => {
 
 
   return (
-    <div className="bg-pink-600 p-4">
-      <div className="bg-yellow-400 w-full flex flex-col  justify-center ">
-        <div className="bg-red-500 w-full md:w-3/6 mx-auto flex flex-row justify-center p-2">
+    <div className="p-4">
+      <div className=" w-full gap-1 flex flex-col  justify-center ">
+        <div className=" p-2 font-bold flex flex-row flex-wrap w-full">
+          <div className="w-full">
+            <h3 className="font-bold text-2xl"> {data.title.slice(1, 50)}</h3>
+          </div>
+        </div>
+        <div className=" gap-1 flex mb-2 flex-row w-full justify-start items-center">
+          <div className=" w-[80px]  flex flex-row justify-center">
+            <img
+              src="/image/defaultImg.jpg"
+              alt="My External Image"
+              className="w-full rounded-full"
+            />
+          </div>
+          <div className="break-words flex-col text-xs md:text-base">
+            <div className=" flex flex-row flex-wrap w-full">
+              <div className="w-full">
+                <h3> {dataUser.name}</h3>
+              </div>
+            </div>
+
+            <div className="flex flex-row flex-wrap w-full">
+              <div className="w-full ">
+                <h3 className="w-full break-words"> {dataUser.email}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className=" mb-6 w-full md:w-3/6 lg:h-84 mx-auto flex flex-row justify-center">
           <img
             src={`${data.image}`}
             alt="My External Image"
-            className="w-1/2"
+            className="w-full"
           />
         </div>
-        <div className="bg-yellow-200 flex flex-col p-2 text-sm md:text-base">
-          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-            <div className="w-2/6">
-              <h3 className="break-words">title: </h3>
-            </div>
-            <div className="w-4/6">
-              <h3> {data.title}</h3>
-            </div>
-          </div>
-
-          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-            <div className="w-2/6">
+        <div className=" flex flex-col gap-1 text-sm md:text-base">
+          <div className=" flex flex-row flex-wrap w-full">
+            {/* <div className="w-2/6">
               <h3>body: </h3>
-            </div>
-            <div className="w-4/6 bg-green-200">
+            </div> */}
+            <div className="w-full ">
               <h3 className="w-full break-words"> {data.body}</h3>
             </div>
           </div>
 
-          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-            <div className="w-2/6">
+          <div className="justify-start gap-3 flex flex-row flex-wrap w-full">
+            <div className="">
               <h3>date: </h3>
             </div>
-            <div className="w-4/6">
+            <div className="">
               <h3> {data.date}</h3>
             </div>
           </div>
 
-          <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-            <div className="w-2/6">
+          <div className=" gap-3 justify-start flex flex-row flex-wrap w-full">
+            <div className="">
               <h3>time read: </h3>
             </div>
-            <div className="w-4/6">
+            <div className="">
               <h3>{Math.round(data.body.length / 100)} minutes</h3>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-col mt-10 flex-wrap">
-        <div className="font-bold text-base text-black">
-          <h3>Data Author</h3>
-        </div>
-        <div className="bg-blue-800 flex-wrap  flex flex-col md:flex-row lg:flex-row w-full ">
-          <div className="bg-yellow-400 w-full flex flex-col  justify-center ">
-            <div className="bg-red-500 w-full md:w-3/6 mx-auto flex flex-row justify-center p-2">
-              <img
-                src="/image/defaultImg.jpg"
-                alt="My External Image"
-                className="w-1/2 rounded-full"
-              />
-            </div>
-            <div className="bg-yellow-200 flex flex-col p-2 text-sm md:text-base">
-              <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-                <div className="w-2/6">
-                  <h3 className="break-words">name: </h3>
-                </div>
-                <div className="w-4/6">
-                  <h3> {dataUser.name}</h3>
-                </div>
-              </div>
-
-              <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-                <div className="w-2/6">
-                  <h3>email: </h3>
-                </div>
-                <div className="w-4/6 bg-green-200">
-                  <h3 className="w-full break-words"> {dataUser.email}</h3>
-                </div>
-              </div>
-
-              <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-                <div className="w-2/6">
-                  <h3>gender: </h3>
-                </div>
-                <div className="w-4/6">
-                  <h3> {dataUser.gender}</h3>
-                </div>
-              </div>
-
-              <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-                <div className="w-2/6">
-                  <h3>status: </h3>
-                </div>
-                <div className="w-4/6">
-                  <h3> {dataUser.status}</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="flex flex-col mt-10 flex-wrap justify-center">
-        <div className="font-bold text-base text-black">
-          <h3>All Commments about this posts</h3>
+    
+        <div className=" flex-wrap justify-center gap-4 items-center flex flex-col  w-full ">
+          <div className="font-bold w-full md:w-5/6 md:text-base text-sm text-black">
+          <h3 className="text-left">{dataComments.length} Commments about this posts</h3>
         </div>
-        <div className="bg-blue-800 flex-wrap justify-center items-center flex flex-col p-4  w-full ">
           {dataComments.map((dt) => (
-            
-              <div key={dt.id} className="bg-yellow-200 w-full md:w-5/6 flex flex-col p-2 text-sm md:text-base">
-                <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-                  <div className="w-2/6">
-                    <h3 className="break-words">name: </h3>
-                  </div>
-                  <div className="w-4/6">
-                    <h3> {dt.name}</h3>
-                  </div>
-                </div>
-
-                <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-                  <div className="w-2/6">
-                    <h3>email: </h3>
-                  </div>
-                  <div className="w-4/6 bg-green-200">
-                    <h3 className="w-full break-words"> {dt.email}</h3>
+            <div
+              key={dt.id}
+              className=" w-full md:w-5/6 flex flex-col text-sm md:text-base"
+            >
+              <div className="flex flex-row w-full">
+                <div className=" flex flex-row flex-wrap w-full">
+                  <div className="w-full">
+                    <h3 className="font-bold text-sm md:text-base"> {dt.name}</h3>
                   </div>
                 </div>
-
-                <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-                  <div className="w-2/6">
-                    <h3>body: </h3>
-                  </div>
-                  <div className="w-4/6">
-                    <h3> {dt.body}</h3>
-                  </div>
-                </div>
-
-                <div className="bg-green-800 p-2 flex flex-row flex-wrap w-full">
-                  <div className="w-2/6">
-                    <h3>date: </h3>
-                  </div>
-                  <div className="w-4/6">
-                    <h3> {dt.status}</h3>
-                  </div>
+                <div className=" ">
+                  <IoChatbubbleEllipsesOutline size="24" />
                 </div>
               </div>
-           
+  
+              <div className=" flex flex-row flex-wrap w-full">
+                <div className="w-full">
+                  <h3> {dt.body}</h3>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
