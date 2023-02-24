@@ -2,7 +2,7 @@ import Card from "@/components/Articles/Card";
 import React from "react";
 import Error from "./error";
 import { faker } from "@faker-js/faker";
-import { formatDistanceToNow, formatISO } from "date-fns";
+import { formatDistanceToNow} from "date-fns";
 
 
 async function getDataPost(params) {
@@ -15,7 +15,7 @@ async function getDataPost(params) {
       },
     });
       const statusCode = res.status > 200 ? res.status : false;
-      // const data = await res.json();
+     
       const imageGenerate = faker.image.technics();
       const datePost = new Date();
       const distance = formatDistanceToNow(datePost);
@@ -35,7 +35,7 @@ async function getDataPost(params) {
 
        
       };
-      console.log(data, "ini new data");
+  
     
       return { statusCode, data };
    
@@ -44,7 +44,7 @@ async function getDataPost(params) {
 export default async function DetailArticle({params}) {
 
    const { data, statusCode } = await getDataPost(params.slug);
-   console.log(data, "ini data di articles detail search ");
+
 
 
 if (statusCode) {

@@ -4,7 +4,7 @@ import NoData from "@/components/Articles/NoData";
 import Error from "./error";
 import ButtonBack from "@/components/Articles/ButtonBack";
 import { faker } from "@faker-js/faker";
-import { formatDistanceToNow, formatISO } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 
 async function getDataSearch(searchData) {
 

@@ -7,13 +7,13 @@ import { formatDistanceToNow, formatISO } from "date-fns";
 
 async function getDataPost(params) {
    if (isNaN(params.slug) || params.slug > 20) {
-    console.log('masuk sini nan');
+  
      const page = 1;
      const data = null;
      return {page, data};
    }else {
       const page = params.slug ? Number(params.slug) : 1;
-  console.log(page, "ini adalah page");
+
   const res = await fetch(
     `https://gorest.co.in/public/v2/posts?page=${page}&per_page=20 `,
     {
@@ -42,10 +42,8 @@ async function getDataPost(params) {
 
 const ArticlesPagination = async ({ params }) => {
   const { data, page } = await getDataPost(params);
-  console.log(params.slug, "ini slug di articles/slug ");
 
-  console.log(page, "ini page steelah render");
-  console.log(data, "ini data di pagination");
+
 
 
   return (

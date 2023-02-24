@@ -24,16 +24,13 @@ async function getDataPost() {
       dt.readTime = Math.round(dt.body.length / 200);
       return dt;
     });
-    console.log(newData, "ini new data articles di halaman pagination");
+
     return newData;
 
 }
 
 const Articles = async () => {
   const data = await getDataPost();
-
-  // const {url, data} = props;
-  console.log(data, "ini data di DEFAULT page");
 
   return (
     <div>
