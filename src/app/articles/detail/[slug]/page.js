@@ -14,31 +14,30 @@ async function getDataPost(params) {
         "Content-Type": "application/json",
       },
     });
-      const statusCode = res.status > 200 ? res.status : false;
-     
-      const imageGenerate = faker.image.technics();
-      const datePost = new Date();
-      const distance = formatDistanceToNow(datePost);
-      const oldData = await res.json();
+     const statusCode = res.status > 200 ? res.status : false;
+     const imageGenerate = faker.image.technics();
+     const datePost = new Date();
+     const distance = formatDistanceToNow(datePost);
+     const oldData = await res.json();
+
+     const data = {
+       id: oldData.id,
+       user_id: oldData.user_id,
+       title: oldData.title,
+       body: oldData.body,
+       date: distance,
+       image: imageGenerate,
+     };
+
+     return { statusCode, data };
       
-      const data = {
-        id: oldData.id,
-        user_id: oldData.user_id,
-        title: oldData.title,
-        body: oldData.body,
-        date: distance,
-        image : imageGenerate,
-      };
-  
-    
-      return { statusCode, data };
    
 }
 
 export default async function DetailArticle({params}) {
 
    const { data, statusCode } = await getDataPost(params.slug);
-
+   console.log(data, "ini data di articles detail search ");
 
 
 if (statusCode) {

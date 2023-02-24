@@ -6,37 +6,43 @@ import { faker } from "@faker-js/faker";
 import { formatDistanceToNow, formatISO } from "date-fns";
 
 async function getDataPost(params) {
-   if (isNaN(params.slug) || params.slug > 20) {
-  
-     const page = 1;
-     const data = null;
-     return {page, data};
-   }else {
+  try {
+    if (isNaN(params.slug) || params.slug > 20) {
+      const page = 1;
+      const data = null;
+      return { page, data };
+    } else {
       const page = params.slug ? Number(params.slug) : 1;
 
-  const res = await fetch(
-    `https://gorest.co.in/public/v2/posts?page=${page}&per_page=20 `,
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
+      const res = await fetch(
+        `https://gorest.co.in/public/v2/posts?page=${page}&per_page=20 `,
+        {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer 3901252ea8565bf3bec602d886ce2d69ddb24a9b56d45943d8c9835cdb75447c`,
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const imageGenerate = faker.image.technics();
+      const dateArticle = new Date();
+      const distance = formatDistanceToNow(dateArticle);
+      const oldData = await res.json();
+      const data = oldData.map((dt) => {
+        dt.date = distance;
+        dt.image = imageGenerate;
+        dt.readTime = Math.round(dt.body.length / 200);
+        return dt;
+      });
+      return { data, page };
     }
-  );
-  const imageGenerate = faker.image.technics();
-  const dateArticle = new Date();
-  const distance = formatDistanceToNow(dateArticle);
-  const oldData = await res.json();
-  const data = oldData.map((dt) => {
-    dt.date = distance;
-    dt.image = imageGenerate;
-    dt.readTime = Math.round(dt.body.length / 200);
-    return dt;
-  });
-  return { data, page };
-   }
+
+  }catch(error){
+     console.error("Error:", error);
+     console.log("Digest:", error.digest);
+  }
+   
 
 }
 
