@@ -20,7 +20,8 @@ async function getDataPost(params) {
       const datePost = new Date();
       const distance = formatDistanceToNow(datePost);
       const oldData = await res.json();
-  //  Math.round(oldData.body.length / 100);
+      
+
      console.log(oldData.body, 'ini body');
       const data = {
         id: oldData.id,
@@ -29,7 +30,7 @@ async function getDataPost(params) {
         body: oldData.body,
         date: distance,
         image : imageGenerate,
-        readTime:  Math.round(oldData.body.length / 100)
+ 
         
 
        

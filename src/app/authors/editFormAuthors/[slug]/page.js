@@ -20,7 +20,7 @@ async function getDataUser(params) {
 
 export default async function EditFormAuthors ({params})  {
      const { data, statusCode } = await getDataUser(params.slug);
-   console.log(params, "ini data di user detail search ");
+ 
 
 
 if (statusCode) {

@@ -7,7 +7,6 @@ const Search = () => {
     const [search, setSearch] = useState('');
 
         const handlerButton= () => {
-        console.log('berhasil');
         router.push('/');
     }
 
@@ -15,7 +14,6 @@ const Search = () => {
       event.preventDefault();
       if(!search) return;
       router.push(`/articles/search/${search}`);
-      console.log(search, "ini search");
     }
 
 

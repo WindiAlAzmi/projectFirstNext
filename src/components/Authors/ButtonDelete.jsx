@@ -8,7 +8,6 @@ const ButtonDelete = ({data}) => {
       const router = useRouter();
        const { pageAuthor } = useAuthorStore();
 
-    console.log(data, 'ini data id untuk btn delete');
 
 
    const deleteHandler = async (data) => {

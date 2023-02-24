@@ -10,10 +10,9 @@ const AddAuthors = () => {
     const [email, setEmail] = useState("");
     const [gender, setGender] = useState("");
     const [status, setStatus] = useState("");
- console.log(name, email, gender, status, "ini data form");
+
     const createAuthorHandler = async (event) => {
           event.preventDefault();
-        console.log(name, email, gender, status, 'ini data form');
         try {
             const response = await fetch(
               "https://gorest.co.in/public/v2/users",

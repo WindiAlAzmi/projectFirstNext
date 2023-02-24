@@ -26,7 +26,7 @@ async function getDataSearch(searchData) {
     dt.date = distance;
     return dt;
   });
-  console.log(data, "ini new data");
+
 
   return { statusCode, data };
 }

@@ -7,7 +7,6 @@ const CardUpdate = ({data}) => {
      const [name, setName] = useState(data?.name);
      const [email, setEmail] = useState(data?.email);
      const [status, setStatus] = useState(data?.status);
-     console.log(name, email, status, "ini data form");
 
      const editAuthorHandler = async (event) => {
        event.preventDefault();
@@ -31,7 +30,7 @@ const CardUpdate = ({data}) => {
          );
          console.log("create authors response: ", response.json());
        } catch (error) {
-         console.log("error creating authors: ", error);
+         console.log("error update authors: ", error);
        } finally {
          setName("");
          setEmail("");

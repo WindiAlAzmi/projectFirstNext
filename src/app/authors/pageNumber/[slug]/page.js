@@ -40,9 +40,7 @@ async function getDataAuthors(params) {
 
 const AuthorsPagination = async ({ params }) => {
   const { data, page} = await getDataAuthors(params);
-  console.log(params.slug, "ini slug di authors/slug ");
 
-  console.log(page, "ini page steelah render");
 
 
   return (

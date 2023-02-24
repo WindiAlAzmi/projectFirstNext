@@ -9,8 +9,6 @@ import CardShortDetailAuthor from "./Authors/CardShortDetailAuthor";
 const inter = Inter({ subsets: ["latin"] });
 
 const MainHome = ({dataUser, dataArticles}) => {
-  console.log(dataUser, 'ini data user di home');
-  console.log(dataArticles, 'ini data articles di home');
 
   const dataUserSlice = useMemo(() => dataUser.slice(1, 5), [dataUser]);
   const dataArticlesSlice = useMemo(() => dataArticles.slice(1,5), [dataArticles]);

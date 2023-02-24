@@ -2,7 +2,6 @@
 import React, {useEffect} from "react"
 
 const CardDelete = ({data}) => {
-     console.log(data, 'ini data id');
 
     useEffect(() => {
          const deleteData = async() => {

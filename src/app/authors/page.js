@@ -20,7 +20,7 @@ async function getDataUser() {
       dt.date = distance;
       return dt;
     });
-    console.log(data, "ini new data ");
+
 
     return data;
 
@@ -29,9 +29,6 @@ async function getDataUser() {
 
 const Authors = async () => {
   const data = await getDataUser();
-
-  // const {url, data} = props;
-  console.log(data, "ini data author di DEFAULT page");
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import React from "react";
 import MainHome from "@/components/MainHome";
 import { faker } from "@faker-js/faker";
-import { formatDistanceToNow, formatISO} from "date-fns"
+import { formatDistanceToNow} from "date-fns"
 
 
 async function getAllArticles() {
@@ -26,7 +26,6 @@ async function getAllArticles() {
     dt.readTime = Math.round(dt.body.length / 200);
     return dt;
    });
-   console.log(newData, 'ini new data articles di home');
    return newData;
   
 }
@@ -41,16 +40,15 @@ async function getAllUser() {
     },
   });
 
-    // const imageGenerate = "/image/defaultImg.jpg"
+ 
     const dateAuthor = new Date();
     const distance = formatDistanceToNow(dateAuthor);
     const data = await res.json();
     const newData = data.map((dt) => {
       dt.date = distance;
-      // dt.image = imageGenerate;
       return dt;
     });
-    console.log(newData, "ini new data");
+
        return newData;
 
 

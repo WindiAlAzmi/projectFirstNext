@@ -6,7 +6,6 @@ import useAuthorStore from "@/store/authors";
 const ButtonBack = () => {
     const {pageAuthor}  = useAuthorStore();
 
-    console.log(pageAuthor, 'ini page authors');
     return (
       <div>
         ini button

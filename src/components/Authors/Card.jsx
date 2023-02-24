@@ -30,7 +30,6 @@ async function getDataPost(data) {
      return dt;
    });
 
-   console.log(newData, "ini new data articles di home");
    return newData;
 }
 

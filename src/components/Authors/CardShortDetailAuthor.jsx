@@ -5,7 +5,6 @@ import Link from "next/link";
 
 
 const CardShortDetailAuthor = ({data}) => {
-  console.log(data, 'ini data di cardshortdetail author');
     return (
       <Link href={`/authors/detail/${data.id}`}>
         <div className="bg-yellow-400 mb-20">
