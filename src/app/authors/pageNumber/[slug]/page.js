@@ -5,7 +5,7 @@ import NoData from "@/components/Authors/NoData";
 import { formatDistanceToNow } from "date-fns";
 
 async function getDataAuthors(params) {
-    if (isNaN(params.slug) || params.slug > 20) {
+    if (isNaN(params.slug) || params.slug >= 10) {
       console.log("masuk sini nan");
       const page = 1;
       const data = null;

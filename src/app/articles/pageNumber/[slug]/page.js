@@ -6,7 +6,7 @@ import { faker } from "@faker-js/faker";
 import { formatDistanceToNow, formatISO } from "date-fns";
 
 async function getDataPost(params) {
-   if (isNaN(params.slug) || params.slug > 20) {
+   if (isNaN(params.slug) || params.slug >= 10) {
     console.log('masuk sini nan');
      const page = 1;
      const data = null;

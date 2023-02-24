@@ -34,11 +34,13 @@ const PaginationArticles = ({ data, page }) => {
           </li>
         }
 
+        {page !== 9  && 
           <li className="col-start-2  md:col-start-3">
             <Link href={`/articles/pageNumber/${page + Number(1)}`}>
               next page {page + 1}
             </Link>{" "}
           </li>
+        }
         </ul>
       </div>
     </div>
